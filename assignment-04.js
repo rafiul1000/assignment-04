@@ -18,7 +18,8 @@ function cubeNumber(input) {
     return result;
   }
   
-//   console.log(cubeNumber(''));
+  console.log(cubeNumber(3));
+  console.log(cubeNumber(4));
 
 // =========================================================
 
@@ -52,7 +53,10 @@ function matchFinder(string1, string2) {
     }
   };
 
-//   console.log(matchFinder('Rafiul', 'fiu'));
+  console.log(matchFinder('John Doe', 'ohn'));
+  console.log(matchFinder('JavaScript', 'Code'));
+  console.log(matchFinder('Peter Parker', 'Pen'));
+  console.log(matchFinder('Peter Parker', 'pet'));
 
 // ============================================================================
 
@@ -101,15 +105,71 @@ function sortMaker(arr) {
   } else {
     return positiveArray;
   }
-}
+};
 
-  /* console.log(sortMaker([2,3]));
+
+  console.log(sortMaker([2,3]));
   console.log(sortMaker([4,2]));
   console.log(sortMaker([4,4]));
   console.log(sortMaker([1,2]));
-  console.log(sortMaker([4,-2])); */
+  console.log(sortMaker([4,-2]));
 
 // ============================================================================
+
+// 04
+
+
+/* তোমাকে একটা function দেওয়া হবে called “findAddress()” যা ইনপুট হিসেবে একটা object নিবে Object এর তিনটি property থাকবে ।
+Task:
+1. তোমাকে ১ম sample output এর format এ output return করতে হবে ।
+2. Bonus: যদি object এর কোনো property missing থাকে সেক্ষেত্রে সেই অংশটুকু double underscore
+দিয়ে replace হবে । (২য় output এর format এ ) */
+
+
+
+function findAddress(obj) {
+  let myResults = '';
+  
+  if ('street' in obj) {
+    myResults += obj.street + ', ';
+  }
+  
+  else {
+    myResults += '__, ';
+  }
+
+  if ('house' in obj) {
+    myResults += obj.house + ', ';
+  }
+  
+  else {
+    myResults += '__, ';
+  }
+
+  if ('society' in obj) {
+    myResults += obj.society;
+  }
+  
+  else {
+    myResults += '__';
+  }
+  
+  return myResults;
+};
+
+ const input1 = { street: 10, house: "15A", society: "Earth Perfect" };
+console.log(findAddress(input1));
+
+const input2 = { street: 10, society: "Earth Perfect" };
+console.log(findAddress(input2));
+
+const input3 = { street: 10 };
+console.log(findAddress(input3));
+
+
+
+
+// =============================================================================
 
 // 05
 
@@ -150,9 +210,14 @@ function canPay(changeArray, totalDue) {
     }
   }
   
-  const changeArray = [5, 2, 3];
-  const totalDue = 10;
-  // console.log(canPay(changeArray, totalDue));
+  const changeArray1 = [1, 2, 5];
+  const totalDue1 = 10;
+
+  const changeArray2 = [1, 5, 5];
+  const totalDue2 = 10;
+
+  console.log(canPay(changeArray1, totalDue1));
+  console.log(canPay(changeArray2, totalDue2));
 
   
   
