@@ -57,6 +57,60 @@ function matchFinder(string1, string2) {
 // ============================================================================
 
 
+
+// 03
+
+/*   তোমাকে একটা ফাংশন লিখতে হবে যার নাম হবে sortMaker()। এই ফাংশনের parameter হবে একটি array এবং এই array তে সবসময় দইুটি উপাদান থাকবে ।
+  Task:
+  1. যদি অ্যারের দইুটি উপাদান পজিটিভ সংখ্যা হয় সেক্ষেত্রে তুমি অ্যারেটিকে বড়ো থেকে ছোট ক্রমে সাজিয়ে রিটার্ন করবে ।
+  2. যদি দুইটি উপাদান একই হয় সেক্ষেত্রে তুমি এই স্ট্রিং রিটার্ন করবে  “equal”
+  3. Bonus: যদি অ্যারের যেকোন একটি উপাদান নেগেটিভ সংখ্যা হয় সেক্ষেত্রে তুমি রিটার্ন করবে “Invalid Input” */
+
+function sortMaker(arr) {
+  let positiveArray = [];
+  let NegativeArray = false;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= 0) {
+      NegativeArray = true;
+      break;
+    }
+    positiveArray.push(arr[i]);
+  }
+
+  if (NegativeArray) {
+    return "Invalid Input";
+  }
+
+  for (let i = 0; i < positiveArray.length - 1; i++) {
+    for (let x = i + 1; x < positiveArray.length; x++) {
+      if (positiveArray[i] < positiveArray[x]) {
+        let testArray = positiveArray[i];
+        positiveArray[i] = positiveArray[x];
+        positiveArray[x] = testArray;
+      }
+    }
+  }
+
+  if (positiveArray.length === 0) {
+    return arr;
+  } else if (positiveArray.length === 1) {
+    return positiveArray;
+  } else if (positiveArray[0] === positiveArray[1]) {
+    return "equal";
+  } else {
+    return positiveArray;
+  }
+}
+
+  /* console.log(sortMaker([2,3]));
+  console.log(sortMaker([4,2]));
+  console.log(sortMaker([4,4]));
+  console.log(sortMaker([1,2]));
+  console.log(sortMaker([4,-2])); */
+
+// ============================================================================
+
 // 05
 
 
@@ -98,7 +152,7 @@ function canPay(changeArray, totalDue) {
   
   const changeArray = [5, 2, 3];
   const totalDue = 10;
-  console.log(canPay(changeArray, totalDue));
+  // console.log(canPay(changeArray, totalDue));
 
   
   
